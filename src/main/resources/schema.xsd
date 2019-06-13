@@ -14,29 +14,78 @@
 
     <xs:complexType name="CandiInfo">
         <xs:sequence>
-            <xs:element name="name" type="xs:string"/>
-            <xs:element name="energy" type="xs:string"/>
-            <xs:element name="type" type="xs:string"/>
+            <xs:element name="name">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="1"/>
+                        <xs:minLength value="20"/>
+                        <xs:pattern value="[A-Z][a-z\-]+"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="energy">
+            <xs:simpleType>
+                <xs:restriction base="xs:int">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="500"/>
+                </xs:restriction>
+            </xs:simpleType>
+            </xs:element>
+            <xs:element name="type">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="filled" type="xs:boolean"/>
+                        <xs:element name="typeName" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="ingredients" type="IngredientInfo"/>
             <xs:element name="value" type="ValueInfo"/>
             <xs:element name="prodaction" type="xs:string"/>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:string"/>
+        <xs:attribute name="id" type="xs:string" use="required"/>
     </xs:complexType>
 
     <xs:complexType name="IngredientInfo">
         <xs:sequence>
-            <xs:element name="woter" type="xs:string"/>
-            <xs:element name="sugar" type="xs:string"/>
+            <xs:element name="woter">
+            <xs:simpleType>
+                <xs:restriction base="xs:int">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="100"/>
+                </xs:restriction>
+            </xs:simpleType>
+            </xs:element>
+            <xs:element name="sugar">
+            <xs:simpleType>
+                <xs:restriction base="xs:int">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="100"/>
+                </xs:restriction>
+            </xs:simpleType>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="ValueInfo">
         <xs:sequence>
-            <xs:element name="protein" type="xs:string"/>
-            <xs:element name="fat" type="xs:string"/>
+            <xs:element name="protein">
+            <xs:simpleType>
+                <xs:restriction base="xs:int">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="100"/>
+                </xs:restriction>
+            </xs:simpleType>
+            </xs:element>
+            <xs:element name="fat">
+            <xs:simpleType>
+                <xs:restriction base="xs:int">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="100"/>
+                </xs:restriction>
+            </xs:simpleType>
+            </xs:element>
             <xs:element name="carbohydrates" type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
-
 </xs:schema>

@@ -4,7 +4,7 @@ import by.epam.controller.builder.impl.DomBuilder;
 import by.epam.controller.builder.impl.GeneralTagHandleOperations;
 import by.epam.controller.builder.impl.SaxBuilder;
 import by.epam.controller.builder.impl.StaxBuilder;
-import com.sun.org.apache.xerces.internal.impl.xs.opti.SchemaDOM;
+import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -17,6 +17,7 @@ import java.util.Map;
 public class BuilderFactory {
     private static BuilderFactory factory = new BuilderFactory();
     private Map<BuilderKey, Builder> map = new HashMap<>();
+    final static Logger logger = Logger.getLogger(BuilderFactory.class);
     private BuilderFactory(){
         try {
             map.put(BuilderKey.DOM, new DomBuilder(
@@ -34,7 +35,7 @@ public class BuilderFactory {
                     new GeneralTagHandleOperations()
             ));
         } catch (ParserConfigurationException | SAXException e) {
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 
