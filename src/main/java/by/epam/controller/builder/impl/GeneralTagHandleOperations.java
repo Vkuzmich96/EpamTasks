@@ -14,6 +14,9 @@ public class GeneralTagHandleOperations implements TagHandler {
             case "energy":
                 candy.setEnergy(value);
                 break;
+            case "filled":
+                candy.setFilled(Boolean.valueOf(value));
+                break;
             case "typeName":
                 candy.setType(value);
                 break;

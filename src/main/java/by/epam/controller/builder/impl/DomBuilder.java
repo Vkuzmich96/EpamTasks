@@ -55,8 +55,8 @@ public class DomBuilder implements Builder {
             if ("ingredients".equals(tag) || "value".equals(tag) || "type".equals(tag)){
                 handle(node, candy);
             }
-            if ("type".equals(tag)){
-                candy.setFilled(Boolean.parseBoolean(node.getAttributes().getNamedItem("isFilled").getNodeValue()));
+            if ("filled".equals(tag)){
+                candy.setFilled(Boolean.parseBoolean(content));
             }
         }
     }

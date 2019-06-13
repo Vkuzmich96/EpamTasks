@@ -3,12 +3,12 @@
         xmlns="http://www.epam.com"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.epam.com ./schema.xsd"
-        
 >
     <candi id ="0">
         <name>Alyonka</name>
         <energy>100</energy>
-        <type isFilled="true">
+        <type>
+            <filled>true</filled>
             <typeName>chocolate</typeName>
         </type>
         <ingredients>
@@ -25,7 +25,8 @@
     <candi id ="1">
         <name>Milko</name>
         <energy>100</energy>
-        <type isFilled="false">
+        <type>
+            <filled>false</filled>
             <typeName>chocolate</typeName>
         </type>
         <ingredients>
@@ -42,7 +43,8 @@
     <candi id ="2">
         <name>Caramel</name>
         <energy>100</energy>
-        <type isFilled="false">
+        <type>
+            <filled>false</filled>
             <typeName>Caramel</typeName>
         </type>
         <ingredients>

@@ -18,16 +18,14 @@ public class Runner {
         DomBuilder domBuilder = (DomBuilder) BuilderFactory.getInstance().getBuilder(BuilderKey.DOM);
         SaxBuilder saxBuilder = (SaxBuilder) BuilderFactory.getInstance().getBuilder(BuilderKey.SAX);
         StaxBuilder staxBuilder = (StaxBuilder) BuilderFactory.getInstance().getBuilder(BuilderKey.STAX);
-        Director director = new Director();
 
         List<Candy> candiesDom = null;
         List<Candy> candiesSax = null;
         List<Candy> candiesStax = null;
         try {
-
-            candiesDom = director.build("candy.xml", domBuilder);
-            candiesSax = director.build("candy.xml", saxBuilder);
-            candiesStax = director.build("candy.xml", staxBuilder);
+            candiesDom = Director.build("candy.xml", domBuilder);
+            candiesSax = Director.build("candy.xml", saxBuilder);
+            candiesStax = Director.build("candy.xml", staxBuilder);
         } catch (IOException | XMLStreamException | SAXException e) {
             e.printStackTrace();
         }

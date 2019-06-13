@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class Director {
-    public List<Candy> build (String url, Builder builder) throws SAXException, IOException, XMLStreamException {
+    public static List<Candy> build (String url, Builder builder) throws SAXException, IOException, XMLStreamException {
         return builder.build(url);
     }
 }
