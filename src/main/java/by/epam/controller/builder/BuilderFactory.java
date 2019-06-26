@@ -17,7 +17,6 @@ import java.util.Map;
 public class BuilderFactory {
     private static BuilderFactory factory = new BuilderFactory();
     private Map<BuilderKey, Builder> map = new HashMap<>();
-    final static Logger logger = Logger.getLogger(BuilderFactory.class);
     private BuilderFactory(){
         try {
             map.put(BuilderKey.DOM, new DomBuilder(
@@ -35,7 +34,7 @@ public class BuilderFactory {
                     new GeneralTagHandleOperations()
             ));
         } catch (ParserConfigurationException | SAXException e) {
-            logger.error(e);
+            System.out.println("ups");
         }
     }
 
